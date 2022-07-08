@@ -1,0 +1,88 @@
+<app-header></app-header>
+<div class="container">
+    <main id="cart" >
+       
+        <h1 class="text-light">Your Order</h1>
+        <div class="container-fluid">
+          <form #userDetails="ngForm" (ngSubmit)="getUserInfo(userDetails.value)">
+         
+      
+          <div class="row align-items-start">
+            <div class="col-12 col-sm-8 items">
+              <!--1-->
+              <div *ngFor="let item of cartItems" class="cartItem row align-items-start">
+                <div class="col-3 mb-2">
+                  <img class="w-100" src= "{{server_url}}/{{item.image}}" alt="art image">
+                </div>
+                <div class="col-5 mb-2">
+                  <h3 class="">{{item.name}}</h3>
+                  <span>{{item.description}}</span>
+                </div>
+                <div class="col-2 quantity-btn-grp">
+                  <button class="btn btn-warning p-1" type="button" (click)="increment(item)"><mat-icon >add</mat-icon></button>
+                  <input readonly type="text" [value]="item.quantity" class="form-control">
+                  <button  class="btn btn-warning p-1" type="button" (click)="decrement(item)"><mat-icon >remove</mat-icon></button>
+                </div>
+                <div class="col-2 d-flex">
+                  <input id="cartItem1Price" class="form-control" value="{{item.price * item.quantity }}">
+                  <button class="remove-item" (click)="removeItem(item)" ><mat-icon class="text-danger">cancel</mat-icon>
+                  </button>
+                </div>
+                <div>
+              
+              </div>
+              </div>
+              
+              <hr>
+              <!--2-->
+              
+            </div>
+            
+            <div class="col-12 col-sm-4 p-3 proceed form">
+             
+                <input *ngIf="isloggedIn" required [ngModel]="userName" name="name" placeholder="Full Name"  class="form-control mb-2">
+                <input *ngIf="isloggedIn" required [ngModel]="userAddress" ngModel name="address" placeholder="Address" class="form-control mb-2">
+                <input *ngIf="isloggedIn" required [ngModel]="userContact" name="mobile" placeholder="Mobile" class="form-control mb-2">
+                <select *ngIf="isloggedIn" required ngModel name ="paymentMode"class="form-select" aria-label="Default select example">
+                  <option selected>Payment Option</option>
+                  <option value="cod">COD</option>
+                  <option value="online" >Online</option>
+                 
+                </select>
+              <div class="row m-0">
+                <div class="col-sm-8 p-0">
+                  <h4>Subtotal</h4>
+                </div>
+                <div class="col-sm-4 p-0">
+                  <p id="subtotal">&#8377;{{subTotal}}</p>
+                </div>
+              </div>
+              <div class="row m-0">
+                <div class="col-sm-8 p-0 ">
+                  <h4>Tax + Delivery Charges</h4>
+                </div>
+                <div class="col-sm-4 p-0">
+                  <p id="tax">&#8377;{{deliveryTaxes}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row mx-0 mb-2">
+                <div class="col-sm-8 p-0 d-inline">
+                  <h4>Total</h4>
+                </div>
+                <div class="col-sm-4 p-0">
+                  <h3 id="total">&#8377;{{totalPrice}}</h3>
+                </div>
+              </div>
+               <button *ngIf="!isloggedIn" routerLink="/login" type="button" id="btn-checkout" class="shopnow-login"><span>Login To Checkout</span></button>
+
+              <button *ngIf="isloggedIn && userDetails.valid"  type="submit" id="btn-checkout" class="shopnow"><span>Checkout</span></button>
+              
+            </div>
+           
+          </div>
+        </form>
+        </div>
+        
+      </main>
+</div>

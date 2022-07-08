@@ -1,0 +1,33 @@
+<app-header></app-header>>
+<div class="container mt-3">
+
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        
+
+        <th>Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of menuList">
+        <th ><img class="m-1" width="50" src= "{{server_url}}/{{item.image}}"></th>
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price}}</td>
+        <td >
+          <div class="d-flex">
+            <a routerLink="/admin/update/menu/{{item._id}}" class="btn btn-primary mr-2">Update</a>
+            <a (click)="delete(item)" class="btn btn-danger ">Delete</a>
+          </div>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+  </div>

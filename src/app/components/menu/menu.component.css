@@ -1,0 +1,10 @@
+.card{
+   padding: 0;
+    border: none;
+    margin: 10px;
+}
+
+.img-container{
+   height: 190px;
+   overflow: hidden;
+}

@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="form-box">
+    <h1>Update User</h1>
+    
+    <form *ngIf="updateForm" [formGroup]="updateForm" (ngSubmit)="updateUser()">
+      <div class="form-group mb-2">
+      
+        <input placeholder="Username" class="form-control"  type="text" formControlName="name">
+      </div>
+      <div class="form-group  mb-2">
+       
+        <input placeholder="Email" class="form-control" type="email" name="Email" formControlName="email">
+      </div>
+      <!-- <div class="form-group  mb-2">
+       
+        <input placeholder="Password" class="form-control"  type="password" name="pass" formControlName="password">
+      </div>
+      <div class="form-group  mb-2">
+       
+        <input placeholder="Confirm Password" class="form-control"  type="password" formControlName="cpassword">
+      </div> -->
+      <input class="btn btn-primary" type="submit" value="Submit" />
+      </form>
+      
+      </div>
+      

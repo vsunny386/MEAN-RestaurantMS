@@ -1,0 +1,28 @@
+.container{
+    background: #57bc76;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 100%; */
+    width: 70%;
+    /* animation: 1s ease-out 0s 1 slideInFromLeft; */
+    transition: width 2s;
+}
+
+.check-icon{
+    font-size: 80px;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-50%);
+    
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

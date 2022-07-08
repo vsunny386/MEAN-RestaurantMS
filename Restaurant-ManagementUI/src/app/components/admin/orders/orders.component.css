@@ -1,0 +1,24 @@
+ .order-block{
+    display: flex;
+    align-items: center;
+ }
+/* .user-info-block{
+     display: flex;
+    align-items: center;
+}  */
+
+.order-no{
+    display: flex;
+
+}
+.paid{
+
+    color: green;
+}
+.mr-2{
+    margin-right: 10px;
+}
+
+.user-name{
+    margin-right: 10px;
+}

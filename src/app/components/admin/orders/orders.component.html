@@ -1,0 +1,43 @@
+<app-header></app-header>>
+<div class="container">
+   
+    <div class="card mb-2" *ngFor="let item of orderList   let i = index">
+        <h2 class="card-header order-no">Order - {{item._id}}
+         
+        </h2>
+        
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+          <div class="user-info-block">
+          <h3 class="user-name"><b>Name</b> {{item.name}}</h3>
+          <h3 class="card-title mr-2"><b>Address</b> {{item.address}}</h3>
+          <h3 class="card-title"><b>Contact</b> {{item.contact}}</h3>
+        </div>
+        </div>
+        <div class="col-md-4">
+         <div *ngFor="let order of toArray(item.cart) " >
+          <div class="order-block">
+          <img class="m-1" width="50" src= "{{server_url}}/{{order.image}}">
+          <h4>{{order.name}} x {{order.quantity}}</h4>
+        </div>
+         </div>
+        </div>
+         
+      
+        <div class="col-md-4">
+         <h1>&#8377;{{item.amount}}</h1>
+           <h2>Mode of Payment - {{item.paymentMode}}</h2>
+           <h2 class="paid">{{item.paid}}</h2>
+           <div class="action-group">
+            <button readonly *ngIf="item.status" class="btn btn-primary">Completed</button>
+            <button *ngIf="!item.status" (click)="acceptOrder(item)" class="btn btn-success mr-2">Accept</button>
+            <button *ngIf="!item.status" class="btn btn-danger" (click)="deleteOrder(item)">Cancel</button>
+           </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    
+    
+</div>

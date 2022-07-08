@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="container mt-3">
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th>Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of users">
+        <th >{{item.name}}</th>
+        <td>{{item.email}}</td>
+        <td>
+            <a routerLink="/admin/update/{{item._id}}" class="btn btn-primary mr-2">Update</a>
+            <a (click)="delete(item)" class="btn btn-danger ">Delete</a>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>

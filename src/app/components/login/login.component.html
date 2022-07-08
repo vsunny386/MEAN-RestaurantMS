@@ -1,0 +1,17 @@
+<app-header></app-header>
+<section class="area-login">
+    <!-- <h1>Acesse sua conta</h1> -->
+    <div class="login">
+      <div>
+        <h1>LOGIN </h1>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <input required type="text" name="nome" placeholder="Email" formControlName="email">
+       
+        <input required type="password" name="senha" placeholder="Password" formControlName="password">
+        <input type="submit" value="LOGIN" />
+      </form>
+      <p>Don't have a account? <a [routerLink]="['/register']">Sign up</a></p>
+    </div>
+  </section>
+ <app-footer></app-footer>

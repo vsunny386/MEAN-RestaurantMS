@@ -1,0 +1,51 @@
+<section id="navcima">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg" id="nav">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <h2>IDOL Restaurant</h2>     
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span><i class="fa-solid fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li *ngIf="isUser" class="nav-item">
+              <a class="nav-link" [routerLink]="['/']" >Home</a>
+            </li>
+            <li *ngIf="!isUser" class="nav-item">
+              <a class="nav-link"[routerLink]="['/admin/users']" >Users</a>
+            </li>
+            <li *ngIf="!isUser" class="nav-item">
+              <a class="nav-link"[routerLink]="['/admin/orders']" >Orders</a>
+            </li>
+            <li *ngIf="!isUser" class="nav-item">
+              <a class="nav-link"[routerLink]="['/admin/add-menu']" >Add Menu</a>
+            </li>
+            <li *ngIf="!isUser" class="nav-item">
+              <a class="nav-link"[routerLink]="['/admin/menu-actions']" >Menu List</a>
+            </li>
+            <li *ngIf="isUser" class="nav-item">
+              <a class="nav-link active" aria-current="page" [routerLink]="['/menu']">Our Menu</a>
+            </li>
+            
+            <li *ngIf="isUser" class="nav-item">
+              <a class="nav-link" href="#quem-somos">About Us</a>
+            </li>
+             <li *ngIf="isUser" class="nav-item">
+              <a class="nav-link" href="#contato">Contact Us</a>
+            </li>
+            <li  *ngIf="isUser && isloggedIn || isadmin" class="username">
+              <span>{{username}}</span>
+            </li>
+            <li>
+              <button *ngIf="!isloggedIn"  type="button" [routerLink]="['/login']" class="btn btn-secondary">Login</button>
+              <button *ngIf="isloggedIn" type="button" (click)="logout()"  class="btn btn-secondary">Logout</button>
+            </li>
+            <li *ngIf="isUser" class=""><button class="cart-button" [routerLink]="['/cart']"><span class="material-icons cart-icon">shopping_cart</span><span class='badge badge-warning' id='lblCartCount'> {{cartLength}} </span></button></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+</section>

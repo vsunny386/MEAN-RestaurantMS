@@ -1,0 +1,18 @@
+<app-header></app-header>
+<section class="area-login">
+    <!-- <h1>Acesse sua conta</h1> -->
+    <div class="login">
+      <div>
+        <h1>REGISTER</h1>
+      </div>
+      <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+        <input type="text" name="name" placeholder="Name" autofocus formControlName="name" >
+        <input type="text" name="email" placeholder="Email Id" autofocus formControlName="email">
+        <input type="password" name="pass" placeholder="Password" formControlName="password">
+        <input type="password" name="cpass" placeholder="Confirm Password" formControlName="cpassword">
+        <input type="submit"  value="LOGIN" />
+      </form>
+      <p>Already Registered? <a [routerLink]="['/login']">Login</a></p>
+    </div>
+  </section>
+ <app-footer></app-footer>

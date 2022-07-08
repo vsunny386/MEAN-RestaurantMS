@@ -1,0 +1,28 @@
+<app-header></app-header>
+<section id='quem-somos'>
+    <div class="container">
+      <div class="section-title text-center text-white">
+        <h2>Our Menu</h2>
+        <!-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> -->
+     
+</div>
+       <div class="row">
+     
+        <div *ngFor="let item of menuList" class="card" style="width: 18rem;">
+          <div class="img-container">
+          <img class="card-img-top img-fluid" src= "{{server_url}}/{{item.image}}" alt="Card image cap">
+        </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+            <h3 class="card-title">{{item.name}}</h3>
+            <h1>&#8377;{{item.price}}</h1>
+          </div>
+            <p class="card-text">{{item.description}}</p>
+            <button (click)="addtoCart(item)" class="btn btn-primary">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</section>
+<app-footer></app-footer>
